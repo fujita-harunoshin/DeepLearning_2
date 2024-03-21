@@ -1,12 +1,15 @@
 {
   "cSpell.words": [
     "abspath",
+    "CBOW",
+    "dout",
     "dtype",
     "extmath",
     "linalg",
     "ppmi",
     "printoptions",
     "querys",
+    "Softmax",
     "vecs",
     "wordvec"
   ]
