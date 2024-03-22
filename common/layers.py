@@ -1,8 +1,12 @@
 # coding: utf-8
+import sys, os
+current_dir = os.path.dirname(os.path.abspath(__file__))
+parent_dir = os.path.dirname(current_dir)
+sys.path.append(parent_dir)
 from common.np import *  # import numpy as np
 from common.config import GPU
 from common.functions import softmax, cross_entropy_error
-
+import cupyx
 
 class MatMul:
     def __init__(self, W):
@@ -157,6 +161,9 @@ class Embedding:
     def forward(self, idx):
         W, = self.params
         self.idx = idx
+        # idxがNumPy配列の場合、CuPy配列に変換
+        if not isinstance(idx, np.ndarray):
+            idx = np.array(idx)
         out = W[idx]
         return out
 
@@ -164,7 +171,7 @@ class Embedding:
         dW, = self.grads
         dW[...] = 0
         if GPU:
-            np.scatter_add(dW, self.idx, dout)
+            cupyx.scatter_add(dW, self.idx, dout)
         else:
             np.add.at(dW, self.idx, dout)
         return None

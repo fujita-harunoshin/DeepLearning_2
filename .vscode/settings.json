@@ -1,16 +1,30 @@
 {
   "cSpell.words": [
     "abspath",
+    "arange",
+    "argmax",
     "CBOW",
+    "cupy",
+    "cupyx",
     "dout",
+    "dscore",
+    "dtarget",
     "dtype",
     "extmath",
+    "keepdims",
     "linalg",
+    "ndarray",
+    "ndim",
     "ppmi",
     "printoptions",
     "querys",
+    "Rnnlm",
+    "skipgram",
     "Softmax",
+    "sumdx",
+    "Unigram",
     "vecs",
-    "wordvec"
+    "wordvec",
+    "ylim"
   ]
 }
