@@ -3,6 +3,7 @@
     "abspath",
     "arange",
     "argmax",
+    "BPTT",
     "CBOW",
     "cupy",
     "cupyx",
