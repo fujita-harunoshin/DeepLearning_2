@@ -16,6 +16,7 @@
     "linalg",
     "ndarray",
     "ndim",
+    "newaxis",
     "ppmi",
     "printoptions",
     "querys",
