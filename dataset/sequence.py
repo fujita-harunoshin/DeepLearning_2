@@ -1,7 +1,8 @@
 # coding: utf-8
-import sys
-sys.path.append('..')
-import os
+import sys, os
+current_dir = os.path.dirname(os.path.abspath(__file__))
+parent_dir = os.path.dirname(current_dir)
+sys.path.append(parent_dir)
 import numpy
 
 
@@ -40,8 +41,8 @@ def load_data(file_name='addition.txt', seed=1984):
         _update_vocab(a)
 
     # create numpy array
-    x = numpy.zeros((len(questions), len(questions[0])), dtype=numpy.int)
-    t = numpy.zeros((len(questions), len(answers[0])), dtype=numpy.int)
+    x = numpy.zeros((len(questions), len(questions[0])), dtype=int)
+    t = numpy.zeros((len(questions), len(answers[0])), dtype=int)
 
     for i, sentence in enumerate(questions):
         x[i] = [char_to_id[c] for c in list(sentence)]
