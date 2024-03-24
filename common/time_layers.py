@@ -1,4 +1,8 @@
 # coding: utf-8
+import sys, os
+current_dir = os.path.dirname(os.path.abspath(__file__))
+parent_dir = os.path.dirname(current_dir)
+sys.path.append(parent_dir)
 from common.np import *  # import numpy as np (or import cupy as np)
 from common.layers import *
 from common.functions import softmax, sigmoid

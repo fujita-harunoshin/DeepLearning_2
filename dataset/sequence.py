@@ -3,7 +3,7 @@ import sys, os
 current_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.dirname(current_dir)
 sys.path.append(parent_dir)
-import numpy
+from common.np import *
 
 
 id_to_char = {}
@@ -41,8 +41,8 @@ def load_data(file_name='addition.txt', seed=1984):
         _update_vocab(a)
 
     # create numpy array
-    x = numpy.zeros((len(questions), len(questions[0])), dtype=int)
-    t = numpy.zeros((len(questions), len(answers[0])), dtype=int)
+    x = np.zeros((len(questions), len(questions[0])), dtype=int)
+    t = np.zeros((len(questions), len(answers[0])), dtype=int)
 
     for i, sentence in enumerate(questions):
         x[i] = [char_to_id[c] for c in list(sentence)]
@@ -50,10 +50,10 @@ def load_data(file_name='addition.txt', seed=1984):
         t[i] = [char_to_id[c] for c in list(sentence)]
 
     # shuffle
-    indices = numpy.arange(len(x))
+    indices = np.arange(len(x))
     if seed is not None:
-        numpy.random.seed(seed)
-    numpy.random.shuffle(indices)
+        np.random.seed(seed)
+    np.random.shuffle(indices)
     x = x[indices]
     t = t[indices]
 

@@ -2,6 +2,7 @@ import sys, os
 current_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.dirname(current_dir)
 sys.path.append(parent_dir)
+from common.np import *
 from common.time_layers import *
 from common.base_model import BaseModel
 

@@ -3,7 +3,6 @@ import sys, os
 current_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.dirname(current_dir)
 sys.path.append(parent_dir)
-import numpy
 import time
 import matplotlib.pyplot as plt
 from common.np import *  # import numpy as np
@@ -29,7 +28,7 @@ class Trainer:
         start_time = time.time()
         for epoch in range(max_epoch):
             # シャッフル
-            idx = numpy.random.permutation(numpy.arange(data_size))
+            idx = np.random.permutation(np.arange(data_size))
             x = x[idx]
             t = t[idx]
 
@@ -59,7 +58,7 @@ class Trainer:
             self.current_epoch += 1
 
     def plot(self, ylim=None):
-        x = numpy.arange(len(self.loss_list))
+        x = np.arange(len(self.loss_list))
         if ylim is not None:
             plt.ylim(*ylim)
         plt.plot(x, self.loss_list, label='train')
@@ -130,7 +129,7 @@ class RnnlmTrainer:
             self.current_epoch += 1
 
     def plot(self, ylim=None):
-        x = numpy.arange(len(self.ppl_list))
+        x = np.arange(len(self.ppl_list))
         if ylim is not None:
             plt.ylim(*ylim)
         plt.plot(x, self.ppl_list, label='train')
